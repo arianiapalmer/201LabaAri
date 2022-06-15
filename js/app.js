@@ -54,12 +54,14 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
   let product = multiply(a, b);
-  let product1 = multiply(c, product[0]);
+  let product1 = multiply(c, product[0])[0];
 
   let sum1 = sum(sum(a,b)[0], c)[0];
 
   let third = a + ' and ' + b + ' and ' + c + ' sum to ' + sum1 + '.';
   let fourth  = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product1 + '.';
+
+  console.log(product1, sum1, third, fourth);
 
   return[product1, sum1, third, fourth];
 }
@@ -83,9 +85,13 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-  let sumOfArray = sum(sum(testArray[0], testArray[1]), testArray[2])[0];
+  let sumOfArray = sum(testArray[0], testArray[1])[0];
+  let sumOfArray2 = sum(sumOfArray, testArray[2])[0];
 
-  return[testArray, ' was passed in as an array of numbers, and ', sumOfArray, 'is their sum.']
+  console.log(sumOfArray, sumOfArray2);
+  console.log(testArray, ' was passed in as an array of numbers, and ', sumOfArray2, ' is their sum.' );
+
+  return[testArray, ' was passed in as an array of numbers, and ', sumOfArray2, ' is their sum.'];
 
 }
 
@@ -107,7 +113,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
+  
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
