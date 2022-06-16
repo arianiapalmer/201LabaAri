@@ -124,12 +124,6 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-  // let productArray = multiply(testArray[0], testArray[1])[0];
-  // let productArray2 = multiply(productArray[0], testArray[2])[0];
-  // let stringArray = 'The numbers ' + testArray + ' have a product of ' + productArray2 + '.';
-
-  // console.log(productArray2, stringArray);
-  // return[productArray2, stringArray];
 
   let arrayProduct = sumAndMultiply(multArr[0], multArr[1], multArr[2])[1];
 
