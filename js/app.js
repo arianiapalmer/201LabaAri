@@ -53,17 +53,31 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  let product = multiply(a, b);
-  let product1 = multiply(c, product[0])[0];
+  // let product = multiply(a, b);
+  // let product1 = multiply(c, product[0])[0];
 
-  let sum1 = sum(sum(a,b)[0], c)[0];
+  // let sum1 = sum(sum(a,b)[0], c)[0];
 
-  let third = a + ' and ' + b + ' and ' + c + ' sum to ' + sum1 + '.';
-  let fourth  = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product1 + '.';
+  // let third = a + ' and ' + b + ' and ' + c + ' sum to ' + sum1 + '.';
+  // let fourth  = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product1 + '.';
 
-  console.log(product1, sum1, third, fourth);
+  // console.log(product1, sum1, third, fourth);
+  let sumABIndex0 = sum(a, b)[0];
 
-  return[product1, sum1, third, fourth];
+  let totalSum = sumABIndex0;
+
+  let sumABCIndex0 = sum(totalSum, c)[0];
+
+  let productABIndex0 = multiply(a, b)[0];
+
+  let totalProduct = productABIndex0;
+
+  let productABCIndex0 = multiply(totalProduct, c)[0];
+
+  let resultSumString = a + ' and ' + b + ' and ' + c + ' sum to ' + sumABCIndex0 + '.';
+  let resultProductString = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productABCIndex0 +'.';
+
+  return[sumABCIndex0, productABCIndex0, resultSumString, resultProductString];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -85,13 +99,13 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-  let sumOfArray = sum(testArray[0], testArray[1])[0];
-  let sumOfArray2 = sum(sumOfArray, testArray[2])[0];
 
-  console.log(sumOfArray, sumOfArray2);
-  console.log(testArray, ' was passed in as an array of numbers, and ', sumOfArray2, ' is their sum.' );
+  let sumOfArray = sumAndMultiply(sumArr[0], sumArr[1], sumArr[2])[0];
 
-  return[testArray, ' was passed in as an array of numbers, and ', sumOfArray2, ' is their sum.'];
+  console.log('sumOfArray is: ' + sumOfArray);
+  console.log(sumArr + ' was passed in as an array of numbers, and ' + sumOfArray + ' is their sum.');
+  
+  return[sumOfArray, sumArr + ' was passed in as an array of numbers, and ' + sumOfArray + ' is their sum.'];
 
 }
 
@@ -113,7 +127,12 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-  
+  let productArray = multiply(testArray[0], testArray[1])[0];
+  let productArray2 = multiply(productArray[0], testArray[2])[0];
+  let stringArray = 'The numbers ' + testArray + ' have a product of ' + productArray2 + '.';
+
+  console.log(productArray2, stringArray);
+  return[productArray2, stringArray];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
